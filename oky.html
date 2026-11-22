@@ -1,0 +1,1465 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio Oky Setiawan, Web Developer dari Nganjuk, Jawa Timur.">
+<meta name="theme-color" content="#12403c">
+<title>Oky Setiawan | Web Developer</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+:root {
+    --bg:#faf8f4;
+    --surface:#f2eee6;
+    --text:#1c1917;
+    --muted:#655e55;
+    --line:#ddd7cb;
+    --accent:#b4441f;
+    --accent-ink:#fff;
+    --brand:#12403c;
+    --brand-2:#1c564f;
+    --on-brand:#f4efe4;
+    --on-brand-muted:#b9c9c3;
+    --sage:#e6eee7;
+    --amber:#e3a33b;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:system-ui,sans-serif;
+    --mono:monospace;
+}
+
+@media(prefers-color-scheme:dark) {
+    :root {
+        --bg:#151311;
+        --surface:#1e1b18;
+        --text:#ece8e1;
+        --muted:#a59e92;
+        --line:#37332e;
+        --accent:#e8794f;
+        --accent-ink:#151311;
+        --sage:#1b2521;
+    }
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:84px;
+}
+
+body {
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+}
+
+body.no-scroll {
+    overflow:hidden;
+}
+
+a {
+    color:inherit;
+    text-underline-offset:3px;
+}
+
+a:hover {
+    color:var(--accent);
+}
+
+:focus-visible {
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+}
+
+.wrap {
+    max-width:880px;
+    margin:auto;
+    padding:0 24px;
+}
+
+/* NAVBAR */
+
+.site-header {
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-row {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    height:64px;
+}
+
+.brand {
+    font-family:var(--serif);
+    font-size:19px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.site-nav {
+    display:flex;
+    gap:18px;
+    font-size:14px;
+}
+
+.site-nav a {
+    color:var(--muted);
+    text-decoration:none;
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+}
+
+.site-nav a.active {
+    color:var(--text);
+    border-bottom-color:var(--accent);
+}
+
+.nav-toggle {
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    color:var(--text);
+    width:40px;
+    height:40px;
+    border-radius:6px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* BUTTON */
+
+.btn {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 20px;
+    border-radius:6px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    border:1px solid var(--accent);
+    background:var(--accent);
+    color:var(--accent-ink);
+    cursor:pointer;
+}
+
+.btn:hover {
+    opacity:.88;
+    color:var(--accent-ink);
+}
+
+.btn.ghost {
+    background:transparent;
+    color:var(--text);
+    border-color:var(--line);
+}
+
+/* HERO */
+
+.hero-band {
+    background:var(--brand);
+    color:var(--on-brand);
+}
+
+.hero-band .eyebrow {
+    color:var(--amber);
+}
+
+.hero-band .muted {
+    color:var(--on-brand-muted);
+}
+
+.hero-band .btn {
+    background:var(--amber);
+    border-color:var(--amber);
+    color:#1c1917;
+}
+
+.hero-band .btn.ghost {
+    background:transparent;
+    color:var(--on-brand);
+    border-color:rgba(244,239,228,.35);
+}
+
+.hero-band .socials a {
+    color:var(--on-brand-muted);
+}
+
+.hero-band .portrait {
+    background:var(--brand-2);
+    border-color:rgba(244,239,228,.3);
+    box-shadow:10px 10px 0 var(--amber);
+}
+
+.hero {
+    padding:88px 0 80px;
+}
+
+.hero-grid {
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:56px;
+    align-items:start;
+}
+
+.eyebrow {
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    margin:0 0 20px;
+}
+
+.hero h1 {
+    font-family:var(--serif);
+    font-size:clamp(34px,5.6vw,54px);
+    line-height:1.1;
+    margin:0 0 24px;
+}
+
+.hero p {
+    max-width:52ch;
+    margin:0 0 14px;
+}
+
+.hero-actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:32px 0 28px;
+}
+
+.socials {
+    display:flex;
+    gap:18px;
+    font-size:20px;
+}
+
+.socials a {
+    color:var(--muted);
+    transition:.25s;
+}
+
+.socials a:hover {
+    color:var(--amber);
+    transform:translateY(-3px);
+}
+
+.portrait {
+    display:block;
+    width:260px;
+    height:325px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:4px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    box-shadow:10px 10px 0 var(--line);
+}
+
+.portrait-caption {
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--on-brand-muted);
+    margin-top:10px;
+}
+
+/* SECTION */
+
+section {
+    padding:64px 0;
+    border-top:1px solid var(--line);
+}
+
+#karier,#sertifikat,#kontak {
+    background:var(--sage);
+}
+
+.section-grid {
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:56px;
+}
+
+h2 {
+    font-family:var(--serif);
+    font-size:26px;
+    line-height:1.25;
+    margin:0;
+}
+
+h2::before {
+    content:"";
+    display:block;
+    width:36px;
+    height:4px;
+    border-radius:2px;
+    background:var(--accent);
+    margin-bottom:14px;
+}
+
+h3 {
+    font-size:17px;
+    line-height:1.4;
+    margin:0;
+}
+
+p {
+    margin:0 0 16px;
+}
+
+.muted {
+    color:var(--muted);
+}
+
+.mono {
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* TIMELINE */
+
+.timeline {
+    list-style:none;
+    margin:0;
+    padding:0 0 0 28px;
+    border-left:1px solid var(--line);
+}
+
+.timeline li {
+    position:relative;
+    padding-bottom:36px;
+}
+
+.timeline li:last-child {
+    padding-bottom:0;
+}
+
+.timeline li::before {
+    content:"";
+    position:absolute;
+    left:-34px;
+    top:8px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--accent);
+    border:2px solid var(--sage);
+    box-shadow:0 0 0 1px var(--accent);
+}
+
+.timeline .mono {
+    display:block;
+    margin-bottom:4px;
+}
+
+.timeline p {
+    margin:6px 0 0;
+    color:var(--muted);
+}
+
+/* SERVICES */
+
+.services {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.services li {
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:16px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.services li:first-child {
+    padding-top:0;
+}
+
+.services li:last-child {
+    border:0;
+    padding-bottom:0;
+}
+
+.services i {
+    color:var(--accent);
+    font-size:20px;
+}
+
+.services p {
+    margin:4px 0 0;
+    color:var(--muted);
+}
+
+/* TECHNOLOGY */
+
+.tech {
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tech li {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    background:var(--sage);
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:15px;
+}
+
+.tech i {
+    color:var(--accent);
+    font-size:17px;
+}
+
+/* CERTIFICATES */
+
+.cert-grid {
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:24px;
+}
+
+.cert {
+    margin:0;
+}
+
+.cert-thumb {
+    display:block;
+    width:100%;
+    padding:0;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:var(--surface);
+    cursor:zoom-in;
+    overflow:hidden;
+    aspect-ratio:4/3;
+}
+
+.cert-thumb img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .3s;
+}
+
+.cert-thumb:hover img {
+    transform:scale(1.03);
+}
+
+.cert-thumb.empty {
+    cursor:default;
+    display:grid;
+    place-items:center;
+    color:var(--muted);
+    font-size:14px;
+    padding:16px;
+}
+
+.cert figcaption {
+    margin-top:12px;
+}
+
+.cert figcaption .mono {
+    display:block;
+    margin-top:2px;
+}
+
+/* PROJECT */
+
+.project-grid {
+    list-style:none;
+    margin:32px 0 0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.project-grid>li {
+    display:flex;
+}
+
+.project {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:4px solid var(--accent);
+    border-radius:8px;
+    overflow:hidden;
+    transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.project:hover {
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.proj-thumb {
+    aspect-ratio:16/10;
+    border:0;
+    border-bottom:1px solid var(--line);
+    border-radius:0;
+}
+
+.project-body {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding:20px;
+    flex:1;
+}
+
+.project-body p {
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+}
+
+/* BUSINESS */
+
+.business {
+    background:var(--brand);
+    color:var(--on-brand);
+    border-top-color:var(--brand);
+}
+
+.business h2::before {
+    background:var(--amber);
+}
+
+.business .muted {
+    color:var(--on-brand-muted);
+}
+
+.business .btn.ghost {
+    color:var(--on-brand);
+    border-color:rgba(244,239,228,.35);
+}
+
+.business .inner {
+    max-width:60ch;
+}
+
+.business .btn {
+    margin-top:8px;
+}
+
+/* CONTACT */
+
+.collab-box {
+    max-width:620px;
+    margin:auto;
+    text-align:center;
+}
+
+.collab-box h2 {
+    font-size:clamp(30px,5vw,42px);
+    margin-bottom:18px;
+}
+
+.collab-box h2::before {
+    margin:0 auto 18px;
+}
+
+.collab-box>p {
+    max-width:500px;
+    margin:0 auto 30px;
+}
+
+.social-contact {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:420px;
+    margin:auto;
+}
+
+.social-contact-link {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:17px 20px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s ease;
+}
+
+.social-contact-link i:first-child {
+    font-size:23px;
+    color:var(--accent);
+}
+
+.social-contact-link span {
+    flex:1;
+    text-align:left;
+}
+
+.social-contact-link i:last-child {
+    color:var(--muted);
+}
+
+.social-contact-link:hover {
+    transform:translateY(-3px);
+    border-color:var(--accent);
+    color:var(--accent);
+    box-shadow:0 6px 18px rgba(0,0,0,.07);
+}
+
+/* FOOTER */
+
+footer {
+    background:var(--brand);
+    padding:28px 0 48px;
+    font-size:14px;
+    color:var(--on-brand-muted);
+}
+
+/* =================================
+   SCROLL ANIMATION
+================================= */
+
+.reveal {
+    opacity:0;
+    transform:translate3d(0,45px,0) scale(.97);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+    will-change:opacity,transform;
+}
+
+.reveal.is-visible {
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+}
+
+.reveal-left {
+    opacity:0;
+    transform:translate3d(-55px,0,0);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal-left.is-visible {
+    opacity:1;
+    transform:translate3d(0,0,0);
+}
+
+.reveal-right {
+    opacity:0;
+    transform:translate3d(55px,0,0);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal-right.is-visible {
+    opacity:1;
+    transform:translate3d(0,0,0);
+}
+
+.reveal-zoom {
+    opacity:0;
+    transform:scale(.8);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal-zoom.is-visible {
+    opacity:1;
+    transform:scale(1);
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+    position:fixed;
+    inset:0;
+    z-index:100;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(10,9,8,.88);
+}
+
+.lightbox.open {
+    display:flex;
+}
+
+.lightbox img {
+    max-width:min(1000px,100%);
+    max-height:82vh;
+    border-radius:4px;
+    background:#fff;
+}
+
+.lightbox-close {
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:44px;
+    height:44px;
+    border:0;
+    border-radius:6px;
+    background:rgba(255,255,255,.14);
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.lightbox-cap {
+    position:absolute;
+    bottom:16px;
+    left:0;
+    right:0;
+    text-align:center;
+    color:#e7e2d9;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px) {
+    .hero {
+        padding:56px 0 48px;
+    }
+
+    .hero-grid {
+        grid-template-columns:1fr;
+        gap:32px;
+    }
+
+    .hero-photo {
+        order:-1;
+    }
+
+    .portrait {
+        width:160px;
+        height:200px;
+    }
+
+    .hero-band .portrait {
+        box-shadow:6px 6px 0 var(--amber);
+    }
+
+    .section-grid {
+        grid-template-columns:1fr;
+        gap:28px;
+    }
+
+    section {
+        padding:48px 0;
+    }
+
+    .nav-toggle {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .site-nav {
+        display:none;
+        position:absolute;
+        top:64px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        gap:0;
+        background:var(--bg);
+        border-bottom:1px solid var(--line);
+        padding:8px 24px 16px;
+    }
+
+    .site-nav.open {
+        display:flex;
+    }
+
+    .site-nav a {
+        padding:12px 0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .nav-cta {
+        display:none;
+    }
+}
+
+@media(max-width:520px) {
+    body {
+        font-size:16px;
+    }
+
+    .project-grid {
+        grid-template-columns:1fr;
+    }
+}
+
+/* AKSESIBILITAS */
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior:auto;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-zoom {
+        opacity:1 !important;
+        transform:none !important;
+        transition:none !important;
+        will-change:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="site-header">
+<div class="wrap nav-row">
+
+<a class="brand" href="#top">Oky Setiawan</a>
+
+<nav class="site-nav" id="site-nav">
+<a href="#tentang">Tentang</a>
+<a href="#karier">Karier</a>
+<a href="#layanan">Layanan</a>
+<a href="#keahlian">Keahlian</a>
+<a href="#sertifikat">Sertifikat</a>
+<a href="#projek">Projek</a>
+<a href="#usaha">Usaha</a>
+<a href="#kontak">Kontak</a>
+</nav>
+
+<a class="btn nav-cta" href="#kontak">Hubungi saya</a>
+
+<button class="nav-toggle" id="nav-toggle"
+aria-label="Buka menu" aria-expanded="false">
+<i class="bi bi-list"></i>
+</button>
+
+</div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+
+<div class="hero-band">
+<div class="wrap">
+<div class="hero">
+<div class="hero-grid">
+
+<div class="reveal">
+<p class="eyebrow">Nganjuk, Jawa Timur</p>
+
+<h1>Saya Oky Setiawan, software dan web developer.</h1>
+
+<p>
+Saya membuat website dan aplikasi web dengan PHP, MySQL,
+dan JavaScript. Dasarnya dari jurusan Rekayasa Perangkat
+Lunak di SMK, lalu saya lanjutkan dengan pendidikan developer.
+</p>
+
+<p class="muted">
+Saya menerima projek website dari bisnis dan UMKM,
+terutama di sekitar Nganjuk.
+</p>
+
+<div class="hero-actions">
+<a class="btn" href="#projek">
+Lihat projek <i class="bi bi-arrow-down"></i>
+</a>
+<a class="btn ghost" href="#kontak">Hubungi saya</a>
+</div>
+
+<div class="socials">
+<a href="https://www.instagram.com/os.awan?jplx=Z2IwODZtMDY5c2pj" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<i class="bi bi-instagram"></i>
+</a>
+<a href="https://www.tiktok.com/@xvy.awan?_r=1&_t=ZS-9BbSAr93kSz" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+<i class="bi bi-tiktok"></i>
+</a>
+<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+<i class="bi bi-facebook"></i>
+</a>
+</div>
+</div>
+
+<div class="hero-photo reveal-zoom">
+<img class="portrait" src="oky.png"
+alt="Foto Oky Setiawan"
+onerror="this.style.display='none';document.getElementById('photo-cap').style.display='none'">
+
+<div class="portrait-caption" id="photo-cap">Oky Setiawan</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- TENTANG -->
+
+<section id="tentang">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Tentang saya</h2>
+
+<div class="reveal">
+<p>
+Saya lahir dan tinggal di Nganjuk. Saya mulai tertarik
+pada pemrograman saat masuk jurusan Rekayasa Perangkat
+Lunak (RPL) di SMK.
+</p>
+
+<p>
+Di sana saya belajar logika dasar, pemrograman terstruktur,
+basis data, dan membuat aplikasi sederhana.
+</p>
+
+<p class="muted">
+Saya lebih suka kode yang sederhana dan mudah dibaca
+orang lain daripada kode yang terlihat rumit.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- KARIER -->
+
+<section id="karier">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Pendidikan dan karier</h2>
+
+<ol class="timeline">
+<li class="reveal">
+<span class="mono">SMK, jurusan RPL</span>
+<h3>Rekayasa Perangkat Lunak</h3>
+<p>Belajar dasar pemrograman, basis data, algoritma,
+dan pembuatan website.</p>
+</li>
+
+<li class="reveal">
+<span class="mono">Setelah SMK</span>
+<h3>Pendidikan developer</h3>
+<p>Mengikuti pendidikan dan pelatihan koding lanjutan.</p>
+</li>
+
+<li class="reveal">
+<span class="mono">Sekarang</span>
+<h3>Freelance dan software developer</h3>
+<p>Mengerjakan projek web dan aplikasi serta
+merintis usaha solusi digital sendiri.</p>
+</li>
+</ol>
+
+</div>
+</section>
+
+<!-- LAYANAN -->
+
+<section id="layanan">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Yang bisa saya kerjakan</h2>
+
+<ul class="services">
+<li class="reveal">
+<i class="bi bi-globe"></i>
+<div>
+<h3>Website bisnis dan portofolio</h3>
+<p>Company profile, katalog, dan halaman portofolio.</p>
+</div>
+</li>
+
+<li class="reveal">
+<i class="bi bi-code-slash"></i>
+<div>
+<h3>Mengubah desain menjadi halaman web</h3>
+<p>Desain Figma atau gambar menjadi HTML, CSS, dan JavaScript.</p>
+</div>
+</li>
+
+<li class="reveal">
+<i class="bi bi-hdd-stack"></i>
+<div>
+<h3>Aplikasi PHP dan MySQL</h3>
+<p>Login pengguna, pengelolaan data, dan dashboard admin.</p>
+</div>
+</li>
+
+<li class="reveal">
+<i class="bi bi-wrench-adjustable"></i>
+<div>
+<h3>Kebutuhan khusus</h3>
+<p>Ceritakan kebutuhan website atau aplikasi Anda.</p>
+</div>
+</li>
+</ul>
+
+</div>
+</section>
+
+<!-- KEAHLIAN -->
+
+<section id="keahlian">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Alat yang saya pakai</h2>
+
+<ul class="tech reveal">
+<li><i class="bi bi-filetype-html"></i>HTML</li>
+<li><i class="bi bi-filetype-css"></i>CSS</li>
+<li><i class="bi bi-filetype-js"></i>JavaScript</li>
+<li><i class="bi bi-bootstrap"></i>Bootstrap</li>
+<li><i class="bi bi-code"></i>PHP</li>
+<li><i class="bi bi-hdd"></i>MySQL</li>
+<li><i class="bi bi-git"></i>Git dan GitHub</li>
+</ul>
+
+</div>
+</section>
+
+<!-- SERTIFIKAT -->
+
+<section id="sertifikat">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Sertifikat</h2>
+
+<ul class="cert-grid">
+<li class="reveal">
+<figure class="cert">
+<button class="cert-thumb"
+data-src="sertifikat1.jpg"
+data-title="Sertifikasi Web Developer"
+aria-label="Lihat sertifikat Web Developer"></button>
+<figcaption>
+<h3>Sertifikasi Web Developer</h3>
+<span class="mono">Pendidikan developer</span>
+</figcaption>
+</figure>
+</li>
+
+<li class="reveal">
+<figure class="cert">
+<button class="cert-thumb"
+data-src="sertifikat 2.jpg"
+data-title="Kelulusan SMK jurusan RPL"
+aria-label="Lihat sertifikat kelulusan SMK"></button>
+<figcaption>
+<h3>Kelulusan SMK jurusan RPL</h3>
+<span class="mono">Rekayasa Perangkat Lunak</span>
+</figcaption>
+</figure>
+</li>
+</ul>
+
+</div>
+</section>
+
+<!-- PROJEK -->
+
+<section id="projek">
+<div class="wrap">
+
+<h2 class="reveal-left">Projek</h2>
+
+<ol class="project-grid">
+<li class="reveal">
+<article class="project">
+<button class="cert-thumb proj-thumb"
+data-src="proyek1.png"
+data-title="FOOD ORDERING DASHBOARD"
+aria-label="Lihat gambar FOOD ORDERING DASHBOARD"></button>
+
+<div class="project-body">
+<h3>FOOD ORDERING DASHBOARD</h3>
+<p>Aplikasi web beli online makanan.</p>
+</div>
+</article>
+</li>
+
+<li class="reveal">
+<article class="project">
+<button class="cert-thumb proj-thumb"
+data-src="proyek2.png"
+data-title="Website makanan Potato Chips"
+aria-label="Lihat gambar website makanan"></button>
+
+<div class="project-body">
+<h3>WEBSITE MAKANAN POTATO CHIPS</h3>
+<p>Website makanan dan pemesanan produk Potato Chips.</p>
+</div>
+</article>
+</li>
+</ol>
+
+</div>
+</section>
+
+<!-- USAHA -->
+
+<section id="usaha" class="business">
+<div class="wrap section-grid">
+
+<h2 class="reveal-left">Usaha sendiri</h2>
+
+<div class="inner reveal">
+<p>
+Selain projek klien, saya sedang membangun
+usaha di bidang solusi digital dan pengembangan
+aplikasi untuk kebutuhan masyarakat.
+</p>
+
+<p class="muted">
+Saya mengembangkan beberapa proyek digital
+yang nantinya dapat digunakan secara online.
+</p>
+
+<a href="digital.html" class="btn">
+Lihat Pengembangan Digital
+<i class="bi bi-arrow-up-right"></i>
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- KONTAK -->
+
+<section id="kontak">
+<div class="wrap">
+
+<div class="collab-box reveal">
+<h2>Mari Bekerja Sama</h2>
+
+<p class="muted">
+Punya ide projek website atau aplikasi?
+Mari berdiskusi dan wujudkan ide digital Anda bersama saya.
+Hubungi saya melalui media sosial di bawah ini.
+</p>
+
+<div class="social-contact">
+
+<a href="https://wa.me/qr/C5FSLSRA4SINK1"
+target="_blank" rel="noopener noreferrer"
+class="social-contact-link">
+<i class="bi bi-whatsapp"></i>
+<span>WhatsApp</span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+
+<a href="https://www.tiktok.com/@xvy.awan?_r=1&_t=ZS-9BbSAr93kSz"
+target="_blank" rel="noopener noreferrer"
+class="social-contact-link">
+<i class="bi bi-tiktok"></i>
+<span>TikTok</span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+
+<a href="https://www.instagram.com/os.awan?jplx=Z2IwODZtMDY5c2pj"
+target="_blank" rel="noopener noreferrer"
+class="social-contact-link">
+<i class="bi bi-instagram"></i>
+<span>Instagram</span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+
+<a href="https://www.facebook.com/username"
+target="_blank" rel="noopener noreferrer"
+class="social-contact-link">
+<i class="bi bi-facebook"></i>
+<span>Facebook</span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox"
+role="dialog" aria-modal="true"
+aria-label="Pratinjau gambar">
+
+<button class="lightbox-close" id="lightbox-close"
+aria-label="Tutup">
+<i class="bi bi-x-lg"></i>
+</button>
+
+<img id="lightbox-img" alt="">
+<div class="lightbox-cap" id="lightbox-cap"></div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="wrap">
+&copy; <span id="year"></span> Oky Setiawan.
+Nganjuk, Jawa Timur.
+</div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+/* =================================
+   MENU MOBILE
+================================= */
+
+const nav = document.getElementById("site-nav");
+const toggle = document.getElementById("nav-toggle");
+
+toggle.addEventListener("click", function() {
+    const isOpen = nav.classList.toggle("open");
+
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Tutup menu" : "Buka menu");
+
+    toggle.querySelector("i").className =
+        isOpen ? "bi bi-x-lg" : "bi bi-list";
+});
+
+nav.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Buka menu");
+        toggle.querySelector("i").className = "bi bi-list";
+    });
+});
+
+/* =================================
+   TAHUN OTOMATIS
+================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* =================================
+   SCROLL REVEAL
+================================= */
+
+const revealElements = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
+);
+
+const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (reduceMotion || !("IntersectionObserver" in window)) {
+
+    revealElements.forEach(function(element) {
+        element.classList.add("is-visible");
+    });
+
+} else {
+
+    // Memberi jeda animasi pada item dalam daftar
+    document.querySelectorAll(
+        ".timeline, .services, .cert-grid, .project-grid"
+    ).forEach(function(group) {
+
+        Array.from(group.children).forEach(function(item, index) {
+            item.style.transitionDelay = (index * 130) + "ms";
+        });
+
+    });
+
+    const observer = new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                } else {
+
+                    // Hapus class saat keluar layar.
+                    // Ketika masuk lagi, animasi akan diputar ulang.
+                    entry.target.classList.remove("is-visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:0.10,
+            rootMargin:"0px 0px -35px 0px"
+        }
+    );
+
+    revealElements.forEach(function(element) {
+        observer.observe(element);
+    });
+
+}
+
+/* =================================
+   LIGHTBOX GAMBAR
+================================= */
+
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lightbox-img");
+const lbCap = document.getElementById("lightbox-cap");
+const lightboxClose = document.getElementById("lightbox-close");
+
+let lastFocus = null;
+
+function openLightbox(src, title, button) {
+
+    lastFocus = button;
+
+    lbImg.src = src;
+    lbImg.alt = title || "Foto projek";
+    lbCap.textContent = title || "";
+
+    lightbox.classList.add("open");
+    document.body.classList.add("no-scroll");
+
+    lightboxClose.focus();
+}
+
+function closeLightbox() {
+
+    lightbox.classList.remove("open");
+    lbImg.removeAttribute("src");
+
+    document.body.classList.remove("no-scroll");
+
+    if (lastFocus) {
+        lastFocus.focus();
+    }
+}
+
+document.querySelectorAll(".cert-thumb").forEach(function(button) {
+
+    const src = button.dataset.src;
+    const title = button.dataset.title;
+
+    const img = new Image();
+
+    img.alt = title || "Foto projek";
+
+    img.onload = function() {
+        button.appendChild(img);
+
+        button.addEventListener("click", function() {
+            openLightbox(src, title, button);
+        });
+    };
+
+    img.onerror = function() {
+        button.classList.add("empty");
+        button.disabled = true;
+        button.textContent = "Foto belum ditambahkan";
+    };
+
+    img.src = src;
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", function(event) {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (
+        event.key === "Escape" &&
+        lightbox.classList.contains("open")
+    ) {
+        closeLightbox();
+    }
+});
+
+/* =================================
+   NAVIGASI AKTIF
+================================= */
+
+const navLinks = Array.from(nav.querySelectorAll("a"));
+
+if ("IntersectionObserver" in window) {
+
+    const sectionObserver = new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (!entry.isIntersecting) return;
+
+                navLinks.forEach(function(link) {
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") ===
+                        "#" + entry.target.id
+                    );
+                });
+
+            });
+
+        },
+        {
+            rootMargin:"-35% 0px -55% 0px"
+        }
+    );
+
+    document.querySelectorAll("main section[id]").forEach(
+        function(section) {
+            sectionObserver.observe(section);
+        }
+    );
+}
+
+});
+</script>
+
+</body>
+</html>

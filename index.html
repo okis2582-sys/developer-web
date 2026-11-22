@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oky Setiawan - Welcome to Nuvora</title>
+
+    <style>
+        /* Import Font Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;800&display=swap');
+
+        :root {
+            --bg-start: #ffffff;
+            --bg-paper: #f2f2f1;
+            --ink: #1d1d1d;
+            --secondary: #3a3a3a;
+            --rule: #a9a9a6;
+            --btn-bg: #1b1b1b;
+            --fs: min(19.6vh, 13.2vw);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-start);
+            color: var(--ink);
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        body.paper-active {
+            background-color: var(--bg-paper);
+        }
+
+        /* SVG Background Lines */
+        .paper-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 1;
+        }
+
+        body.paper-active .paper-bg {
+            opacity: 1;
+        }
+
+        /* Navigasi Atas */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            font-size: max(12px, 14px);
+            font-weight: 450;
+            color: var(--secondary);
+            z-index: 10;
+            transform: translateY(-140%);
+        }
+
+        .nav-links,
+        .nav-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        header a:hover {
+            color: var(--ink);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            font-size: var(--fs);
+            font-weight: 800;
+            line-height: 0.8;
+            letter-spacing: -0.045em;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .word-part {
+            display: inline-block;
+            transition: margin 0.3s ease;
+        }
+
+        /* Pill Container */
+        .pill {
+            position: relative;
+            height: 1.81em;
+            width: 0.012em;
+            background-color: #d8d3cf;
+            border-radius: 999px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: width, clip-path;
+        }
+
+        /* Hairline Overlay */
+        .hairline-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: #b9b9b9;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Video dalam Pill */
+        .pill video {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center top;
+            z-index: 2;
+        }
+
+        /* Pill Icons */
+        .pill-icon {
+            position: absolute;
+            bottom: 12px;
+            font-size: 14px;
+            color: #fff;
+            opacity: 0;
+            z-index: 4;
+            transition: opacity 0.3s ease;
+        }
+
+        .icon-left {
+            left: 16px;
+        }
+
+        .icon-right {
+            right: 16px;
+            cursor: pointer;
+        }
+
+        /* Footer Bawah - DIPERBAIKI */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 40px 38px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 100;
+            transform: translateY(160%);
+        }
+
+        /* Tombol Mulai Menjelajah */
+        .btn-wild {
+            background-color: var(--btn-bg);
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            text-align: center;
+            white-space: nowrap;
+            min-height: 46px;
+        }
+
+        .btn-wild:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        /* Responsif HP */
+        @media (max-width: 720px) {
+
+            :root {
+                --fs: min(34vw, 16.5vh);
+            }
+
+            body {
+                overflow: hidden;
+            }
+
+            .hero {
+                top: 47%;
+                flex-direction: column;
+                gap: 0.03em;
+            }
+
+            .pill {
+                width: calc(100vw - 40px) !important;
+                height: calc((100vw - 40px) / 1.85);
+            }
+
+            header {
+                font-size: 12.5px;
+                padding: 16px 20px;
+            }
+
+            .nav-social {
+                display: none;
+            }
+
+            /* Footer HP */
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 20px 20px 28px;
+                margin-top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(160%);
+            }
+
+            .btn-wild {
+                width: 100%;
+                height: 46px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG Background Soft S-Curves -->
+    <svg class="paper-bg"
+         viewBox="0 0 1440 960"
+         fill="none"
+         preserveAspectRatio="none">
+
+        <path d="M-100 800 C 300 900, 500 400, 800 500 C 1100 600, 1200 200, 1600 100"
+              stroke="#d5d5d2" stroke-width="2.5" />
+
+        <path d="M-50 900 C 250 800, 400 300, 700 400 C 1000 500, 1300 150, 1700 50"
+              stroke="#e0e0dc" stroke-width="1.8" />
+
+        <path d="M0 700 C 400 850, 600 500, 900 600 C 1200 700, 1350 300, 1650 200"
+              stroke="#cbcbc8" stroke-width="3.2" />
+
+        <path d="M-80 600 C 200 700, 450 200, 750 300 C 1050 400, 1250 100, 1550 0"
+              stroke="#dededb" stroke-width="1.2" />
+
+        <path d="M-20 1000 C 350 750, 550 650, 850 700 C 1150 750, 1300 400, 1600 300"
+              stroke="#d2d2cf" stroke-width="3.9" />
+
+    </svg>
+
+    <!-- Navigasi Atas -->
+    <header id="navHeader">
+
+        <div class="nav-social">
+            <a href="#">Instagram</a> 
+            <a href="#">Tik tok</a>
+            <a href="#">Facebook</a>
+        </div>
+
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+
+        <span class="word-part" id="wordWi">O</span>
+
+        <div class="pill" id="heroPill">
+
+            <div class="hairline-overlay" id="hairlineOverlay"></div>
+
+            <video
+                id="sceneVideo"
+                src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/175fbbcd-e50a-480c-bab2-ca16d4678322.mp4"
+                poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/726b168c-da47-4682-a255-cc3e02f89bae.jpg"
+                muted
+                playsinline
+                loop>
+            </video>
+
+            <span class="pill-icon icon-left">🍃</span>
+
+            <span class="pill-icon icon-right" id="speakerIcon">🔊</span>
+
+        </div>
+
+        <span class="word-part" id="wordLd">S</span>
+
+    </div>
+
+    <!-- Footer Bawah -->
+    <footer id="footerBar">
+
+        <button class="btn-wild" id="wildBtn">
+            Mulai Menjelajah
+        </button>
+
+    </footer>
+
+    <!-- JavaScript Animasi & Interaksi -->
+    <script>
+
+        const pill = document.getElementById('heroPill');
+        const hairline = document.getElementById('hairlineOverlay');
+        const wordWi = document.getElementById('wordWi');
+        const wordLd = document.getElementById('wordLd');
+        const nav = document.getElementById('navHeader');
+        const footer = document.getElementById('footerBar');
+        const video = document.getElementById('sceneVideo');
+        const icons = document.querySelectorAll('.pill-icon');
+        const btnWild = document.getElementById('wildBtn');
+        const speaker = document.getElementById('speakerIcon');
+
+        // Mulai video
+        video.play().catch(() => {});
+
+        // Fungsi Animasi Utama Masuk
+        function playRevealAnimation() {
+
+            const duration = 2100;
+            const startTime = performance.now();
+
+            document.body.classList.add('paper-active');
+
+            function update(currentTime) {
+
+                const elapsed = currentTime - startTime;
+                let progress = Math.min(elapsed / duration, 1);
+
+                // 1. Pill Width & Clip
+                let pWidth = 0.012;
+
+                if (progress <= 0.14) {
+
+                    pWidth = 0.012;
+
+                    pill.style.clipPath =
+                        `inset(50% 0 ${50 * (1 - progress / 0.14)}% 0)`;
+
+                } else if (progress <= 0.30) {
+
+                    pWidth = 0.16;
+                    pill.style.clipPath = 'inset(0)';
+
+                } else if (progress <= 0.58) {
+
+                    pWidth = 1.81;
+
+                } else {
+
+                    pWidth = 3.62;
+
+                }
+
+                pill.style.width = `${pWidth}em`;
+
+                // 2. Hairline Fade
+                if (progress >= 0.14 && progress <= 0.30) {
+
+                    hairline.style.opacity =
+                        1 - (progress - 0.14) / 0.16;
+
+                } else if (progress < 0.14) {
+
+                    hairline.style.opacity = 1;
+
+                } else {
+
+                    hairline.style.opacity = 0;
+
+                }
+
+                // 3. Word Gap
+                let gap = 0.026;
+
+                if (progress > 0.14 && progress <= 0.58) {
+
+                    gap = 0.05;
+
+                } else if (progress > 0.58) {
+
+                    gap = 0.085;
+
+                }
+
+                wordWi.style.marginRight = `${gap}em`;
+                wordLd.style.marginLeft = `${gap}em`;
+
+                // 4. Background
+                if (progress >= 0.45) {
+                    document.body.classList.add('paper-active');
+                }
+
+                // Nav Slide Down
+                let navProgress = progress >= 0.5
+                    ? (progress - 0.5) / 0.36
+                    : 0;
+
+                navProgress = Math.min(Math.max(navProgress, 0), 1);
+
+                nav.style.transform =
+                    `translateY(${-140 + navProgress * 140}%)`;
+
+                // Footer Rise - DIPERBAIKI
+                let footerProgress = progress >= 0.52
+                    ? (progress - 0.52) / 0.38
+                    : 0;
+
+                footerProgress = Math.min(Math.max(footerProgress, 0), 1);
+
+                footer.style.transform =
+                    `translateY(${160 - footerProgress * 160}%)`;
+
+                // Icons Fade
+                let iconOpacity = progress >= 0.80
+                    ? (progress - 0.80) / 0.20
+                    : 0;
+
+                icons.forEach(ic => {
+                    ic.style.opacity = iconOpacity;
+                });
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(update);
+
+                } else {
+
+                    // Pastikan footer terlihat setelah animasi
+                    footer.style.transform = 'translateY(0)';
+
+                }
+
+            }
+
+            requestAnimationFrame(update);
+
+        }
+
+        // Jalankan animasi saat halaman siap
+        window.addEventListener('load', () => {
+
+            setTimeout(() => playRevealAnimation(), 200);
+
+        });
+
+        // Animasi Penutupan & Pindah ke oky.html
+        btnWild.addEventListener('click', (e) => {
+
+            e.preventDefault();
+
+            btnWild.disabled = true;
+
+            const duration = 800;
+            const startTime = performance.now();
+
+            function updateExit(currentTime) {
+
+                const elapsed = currentTime - startTime;
+                let progress = Math.min(elapsed / duration, 1);
+
+                // Perkecil pill kembali ke hairline
+                let currentWidth =
+                    3.62 * (1 - progress) + 0.012 * progress;
+
+                pill.style.width = `${currentWidth}em`;
+
+                // Munculkan kembali hairline overlay
+                hairline.style.opacity = progress;
+
+                // Sembunyikan ikon pill
+                icons.forEach(ic => {
+                    ic.style.opacity = 1 - progress;
+                });
+
+                // Kembalikan gap huruf
+                let gap =
+                    0.085 * (1 - progress) + 0.026 * progress;
+
+                wordWi.style.marginRight = `${gap}em`;
+                wordLd.style.marginLeft = `${gap}em`;
+
+                // Geser nav ke atas & footer ke bawah
+                nav.style.transform =
+                    `translateY(${-140 * progress}%)`;
+
+                footer.style.transform =
+                    `translateY(${160 * progress}%)`;
+
+                // Pudar background kembali ke putih
+                if (progress > 0.5) {
+                    document.body.classList.remove('paper-active');
+                }
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(updateExit);
+
+                } else {
+
+                    window.location.href = 'oky.html';
+
+                }
+
+            }
+
+            requestAnimationFrame(updateExit);
+
+        });
+
+        // Speaker Toggle
+        let isMuted = true;
+
+        speaker.addEventListener('click', () => {
+
+            isMuted = !isMuted;
+
+            video.muted = isMuted;
+
+            speaker.textContent = isMuted ? '🔊' : '🔇';
+
+        });
+
+        // Mode Rekaman (?rec=1)
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('rec') === '1') {
+
+            window.__recVideo = function(t) {
+
+                return (t % video.duration) + (1 / 120);
+
+            };
+
+        }
+
+    </script>
+
+</body>
+</html>
